@@ -13,6 +13,12 @@
     <!-- DaisyUI -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet">
 
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
 </head>
 
 <body class="bg-gray-100">
@@ -52,6 +58,43 @@
 
     </div>
 
+    <!-- Issues Summary Section -->
+
+    <div class="bg-white shadow-md rounded-lg mx-8 mt-6 p-4 flex justify-between items-center">
+
+        <!-- Left side -->
+
+        <div class="flex items-center gap-3">
+
+            <!-- <div class="flex"> -->
+            <img class="w-6 h-6" src="assets/Aperture.png" alt="">
+
+            <div class=" ">
+                <h6 class="font-semibold" id="totalIssues">50 Issues</h6>
+
+                <p> Track and manage your project issues</p>
+            </div>
+            <!-- </div> -->
+
+        </div>
+
+
+        <!-- Right side -->
+
+        <div class="flex gap-4">
+
+            <p class="flex items-center gap-2 text-green-600">
+                ● Open
+            </p>
+
+            <p class="flex items-center gap-2 text-purple-600">
+                ● Closed
+            </p>
+
+        </div>
+
+    </div>
+
 
     <!--  Spinner -->
 
@@ -62,7 +105,7 @@
 
     <!-- Issues Container -->
 
-    <div id="issues-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-8">
+    <div id="issues-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7 p-8">
 
     </div>
 
@@ -72,15 +115,41 @@
         <div class="modal-box">
 
             <h3 id="modalTitle" class="font-bold text-lg"></h3>
+            <div class="flex gap-2">
+                <button class="p-1 rounded-lg border-2 border-black-500 bg-transparent"> <span
+                        id="modalStatus"></span></button>
 
+                <span> ● opened by </span>
+                <p id="modalAuthor"> </p>
+                <span> ●</span>
+                <span id="modalDate"></span>
+            </div>
             <p id="modalDescription" class="py-2"></p>
 
-            <p><b>Status:</b> <span id="modalStatus"></span></p>
-            <p><b>Author:</b> <span id="modalAuthor"></span></p>
-            <p><b>Priority:</b> <span id="modalPriority"></span></p>
-            <p><b>Label:</b> <span id="modalLabel"></span></p>
-            <p><b>Created:</b> <span id="modalDate"></span></p>
 
+            <div class="flex gap-5">
+                <button class="bg-transparent "><i class="fa-solid fa-bug"></i><small
+                        class="text-red-500">BUG</small></button>
+                <button class="btn"><i class="fa-solid fa-life-ring"></i><small class="text-yellow-500">HELP
+                        WANTED</small></button>
+            </div>
+
+
+
+
+
+
+            <p><b>Label:</b> <span id="modalLabel"></span></p>
+            <p> <span id="modalDate"></span></p>
+            <div class="flex justify-between items-center gap-4">
+                <p><b>Assignee:</b>
+
+                    <span class="text-red-500" id="modalAuthor"></span>
+                </p>
+                <p><b>Priority:</b>
+                    <br> <span class="text-red-500" id="modalPriority"></span>
+                </p>
+            </div>
             <div class="modal-action">
                 <form method="dialog">
                     <button class="btn">Close</button>

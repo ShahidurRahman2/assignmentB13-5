@@ -98,11 +98,14 @@ function displayIssues(issues) {
 
         //  akon dynamic button color 
         const priorityClass =
-            issue.priority === "High"
+            issue.priority === "high"
                 ? "text-red-500"
-                : issue.priority === "Medium"
+                : issue.priority === "medium"
                     ? "text-yellow-500 "
                     : "text-gray-400 ";
+
+
+
         card.innerHTML = `
         
 
@@ -118,12 +121,17 @@ function displayIssues(issues) {
 <h2 class="card-title">${issue.title}</h2>
 
 <p>${issue.description}</p>
+ <div class="flex gap-5">
+        <button class="bg-transparent "><i class="fa-solid fa-bug"></i><small  class="text-red-500">BUG</small></button>
+    <button class="btn"><i class="fa-solid fa-life-ring"></i><small class="text-yellow-500">HELP WANTED</small></button>
+    </div>
+<br>
+<hr class=" text-bold">
+
+<p>#1 by ${issue.author}</p>
 
 
-<p><b>Author:</b> ${issue.author}</p>
-
-<p><b>Label:</b> ${issue.label}</p>
-<p><b>Created:</b> ${issue.createdAt}</p>
+<p> ${issue.createdAt}</p>
 
 </div>
 `
