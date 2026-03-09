@@ -19,6 +19,18 @@ function login() {
 
 
 
+// function changeTab(event, type) {
+
+//     const tabs = document.querySelectorAll(".tab")
+
+//     tabs.forEach(tab => {
+//         tab.classList.remove("tab-active")
+//     })
+
+//     event.target.classList.add("tab-active")
+
+// }
+
 function changeTab(event, type) {
 
     const tabs = document.querySelectorAll(".tab")
@@ -28,6 +40,20 @@ function changeTab(event, type) {
     })
 
     event.target.classList.add("tab-active")
+
+    let filteredIssues = []
+
+    if (type === "all") {
+        filteredIssues = allIssues
+    }
+    else if (type === "open") {
+        filteredIssues = allIssues.filter(issue => issue.status === "open")
+    }
+    else if (type === "closed") {
+        filteredIssues = allIssues.filter(issue => issue.status === "closed")
+    }
+
+    displayIssues(filteredIssues)
 
 }
 
@@ -116,5 +142,28 @@ function displayIssues(issues) {
     })
 
 }
-
 loadIssues()
+
+//  search korar lahe function 
+
+async function searchIssues() {
+
+    const searchText = document.getElementById("searchInput").value
+
+    if (searchText === "") {
+        displayIssues(allIssues)
+        return
+    }
+
+    document.getElementById("loading").classList.remove("hidden")
+
+    const res = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchText}`)
+
+    const data = await res.json()
+
+    displayIssues(data.data)
+
+    document.getElementById("loading").classList.add("hidden")
+
+}
+
