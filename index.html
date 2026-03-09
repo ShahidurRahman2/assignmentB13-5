@@ -17,7 +17,7 @@
 
 <body class="bg-gray-100">
 
-    <!-- Navbar -->
+    <!-- Navbar  ar kaj akane-->
 
     <div class="navbar bg-base-100 shadow-md px-8">
 
@@ -53,7 +53,7 @@
     </div>
 
 
-    <!-- Loading Spinner -->
+    <!--  Spinner -->
 
     <div id="loading" class="flex justify-center mt-10 hidden">
         <span class="loading loading-spinner loading-lg"></span>
@@ -66,7 +66,29 @@
 
     </div>
 
+    <!--  Modal ar kaj akon -->
 
+    <dialog id="issueModal" class="modal">
+        <div class="modal-box">
+
+            <h3 id="modalTitle" class="font-bold text-lg"></h3>
+
+            <p id="modalDescription" class="py-2"></p>
+
+            <p><b>Status:</b> <span id="modalStatus"></span></p>
+            <p><b>Author:</b> <span id="modalAuthor"></span></p>
+            <p><b>Priority:</b> <span id="modalPriority"></span></p>
+            <p><b>Label:</b> <span id="modalLabel"></span></p>
+            <p><b>Created:</b> <span id="modalDate"></span></p>
+
+            <div class="modal-action">
+                <form method="dialog">
+                    <button class="btn">Close</button>
+                </form>
+            </div>
+
+        </div>
+    </dialog>
 
     <script src="index.js"></script>
 

@@ -19,17 +19,6 @@ function login() {
 
 
 
-// function changeTab(event, type) {
-
-//     const tabs = document.querySelectorAll(".tab")
-
-//     tabs.forEach(tab => {
-//         tab.classList.remove("tab-active")
-//     })
-
-//     event.target.classList.add("tab-active")
-
-// }
 
 function changeTab(event, type) {
 
@@ -94,6 +83,8 @@ function displayIssues(issues) {
                 : "border-t-4 border-purple-500"
 
         const card = document.createElement("div")
+        card.onclick = () => openModal(issue)
+
 
         card.className = `card bg-base-100 shadow ${borderColor}`
 
@@ -164,6 +155,20 @@ async function searchIssues() {
     displayIssues(data.data)
 
     document.getElementById("loading").classList.add("hidden")
+
+}
+//   ata holo modal ar funtionality
+function openModal(issue) {
+
+    document.getElementById("modalTitle").innerText = issue.title
+    document.getElementById("modalDescription").innerText = issue.description
+    document.getElementById("modalStatus").innerText = issue.status
+    document.getElementById("modalAuthor").innerText = issue.author
+    document.getElementById("modalPriority").innerText = issue.priority
+    document.getElementById("modalLabel").innerText = issue.label
+    document.getElementById("modalDate").innerText = issue.createdAt
+
+    document.getElementById("issueModal").showModal()
 
 }
 
